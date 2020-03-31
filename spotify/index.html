@@ -26,8 +26,8 @@
                     baseString = "open.spotify.com/user/vf1qrgrxlht40hdj5sitlvnyk";
                     baseStringApp = "spotify://user/vf1qrgrxlht40hdj5sitlvnyk"
                 }
-                var desktopFallback = `https://${baseString}${myParam}`,
-                mobileFallback = `https://${baseString}${myParam}`,
+                var desktopFallback = `${baseString}${myParam}`,
+                mobileFallback = `${baseString}${myParam}`,
                 app = `${baseStringApp}${myParam}`;
                 if( /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
                     window.location = app;
