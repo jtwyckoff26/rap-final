@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,17 +14,9 @@
                 const urlParams = new URLSearchParams(window.location.search);
                 console.log("urlParams: ", window.location.search)
                 console.log("urlParams.get('video'): ", urlParams.get('video'));
-                if (searchString.includes('video')) {
-                    myParam = urlParams.get('video');
-                    baseString = "www.youtube.com/watch?v=";
-                }
-                else {
-                    myParam = "";
-                    baseString = "www.youtube.com/channel/UC-pariAxZlINnspVJEAy2Zw";
-                }
-                var desktopFallback = `https://${baseString}${myParam}`,
-                mobileFallback = `https://${baseString}${myParam}`,
-                app = `vnd.youtube://${baseString}${myParam}`;
+                var desktopFallback = `https://www.raptv.com`,
+                mobileFallback = `https://www.raptv.com`,
+                app = `https://www.raptv.com`;
                 if( /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
                     window.location = app;
                     window.setTimeout(function() {
