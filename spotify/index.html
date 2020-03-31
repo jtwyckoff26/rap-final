@@ -18,12 +18,12 @@
                 console.log("urlParams.get('playlist'): ", urlParams.get('video'));
                 if (searchString.includes('playlist')) {
                     myParam = urlParams.get('playlist');
-                    baseString = "open.spotify.com/playlist/";
+                    baseString = "https://open.spotify.com/playlist/";
                     baseStringApp = "spotify://playlist/"
                 }
                 else {
                     myParam = "";
-                    baseString = "open.spotify.com/user/vf1qrgrxlht40hdj5sitlvnyk";
+                    baseString = "https://open.spotify.com/user/vf1qrgrxlht40hdj5sitlvnyk";
                     baseStringApp = "spotify://user/vf1qrgrxlht40hdj5sitlvnyk"
                 }
                 var desktopFallback = `${baseString}${myParam}`,
