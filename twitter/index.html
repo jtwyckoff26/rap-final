@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            window.onload = function() {
+                let myParam;
+                let baseString;
+                let searchString;
+                searchString = window.location.search;
+                const urlParams = new URLSearchParams(window.location.search);
+                console.log("urlParams: ", window.location.search)
+                console.log("urlParams.get('video'): ", urlParams.get('video'));
+                var desktopFallback = `https://twitter.com/Raptv_lit`,
+                mobileFallback = `https://twitter.com/Raptv_lit`,
+                app = `twitter://user?screen_name=Raptv_lit`;
+                if( /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
+                    window.location = app;
+                    window.setTimeout(function() {
+                        window.location = mobileFallback;
+                    }, 25);
+                } else {
+                    window.location = desktopFallback;
+                }
+                function killPopup() {
+                    window.removeEventListener('pagehide', killPopup);
+                }
+                window.addEventListener('pagehide', killPopup);
+            };
+        </script>
+    </body>
+</html>

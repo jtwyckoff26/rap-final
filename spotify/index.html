@@ -1,0 +1,47 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            window.onload = function() {
+                let myParam;
+                let baseString;
+                let searchString;
+                searchString = window.location.search;
+                const urlParams = new URLSearchParams(window.location.search);
+                console.log("urlParams: ", window.location.search)
+                console.log("urlParams.get('playlist'): ", urlParams.get('video'));
+                if (searchString.includes('playlist')) {
+                    myParam = urlParams.get('playlist');
+                    baseString = "https://open.spotify.com/playlist/";
+                    baseStringApp = "spotify://playlist/"
+                }
+                else {
+                    myParam = "";
+                    baseString = "https://open.spotify.com/user/vf1qrgrxlht40hdj5sitlvnyk";
+                    baseStringApp = "spotify://user/vf1qrgrxlht40hdj5sitlvnyk"
+                }
+                var desktopFallback = `https://${baseString}${myParam}`,
+                mobileFallback = `https://${baseString}${myParam}`,
+                app = `${baseStringApp}${myParam}`;
+                if( /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
+                    window.location = app;
+                    window.setTimeout(function() {
+                        window.location = mobileFallback;
+                    }, 25);
+                } else {
+                    window.location = desktopFallback;
+                }
+                function killPopup() {
+                    window.removeEventListener('pagehide', killPopup);
+                }
+                window.addEventListener('pagehide', killPopup);
+            };
+        </script>
+    </body>
+</html>
