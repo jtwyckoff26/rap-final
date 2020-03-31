@@ -16,7 +16,7 @@
                 const urlParams = new URLSearchParams(window.location.search);
                 console.log("urlParams: ", window.location.search)
                 console.log("urlParams.get('video'): ", urlParams.get('video'));
-                if (searchString.included('youtube')) {
+                if (searchString.includes('youtube')) {
                   if (searchString.includes('video')) {
                       myParam = urlParams.get('video');
                       baseString = "www.youtube.com/watch?v=";
@@ -45,7 +45,7 @@
 
                   window.addEventListener('pagehide', killPopup);
                 }
-                else if (searchString.included('instagram')) {
+                else if (searchString.includes('instagram')) {
                   if (searchString.includes('video')) {
                       myParam = urlParams.get('video');
                       baseString = "www.youtube.com/watch?v=";
@@ -74,7 +74,7 @@
 
                   window.addEventListener('pagehide', killPopup);
                 }
-                if (searchString.included('spotify')) {
+                else if (searchString.includes('spotify')) {
                   if (searchString.includes('video')) {
                       myParam = urlParams.get('video');
                       baseString = "www.youtube.com/watch?v=";
@@ -103,7 +103,7 @@
 
                   window.addEventListener('pagehide', killPopup);
                 }
-                if (searchString.included('tiktok')) {
+                else if (searchString.includes('tiktok')) {
                   if (searchString.includes('video')) {
                       myParam = urlParams.get('video');
                       baseString = "www.youtube.com/watch?v=";
@@ -132,7 +132,7 @@
 
                   window.addEventListener('pagehide', killPopup);
                 }
-                if (searchString.included('twitter')) {
+                else if (searchString.includes('twitter')) {
                   if (searchString.includes('video')) {
                       myParam = urlParams.get('video');
                       baseString = "www.youtube.com/watch?v=";
