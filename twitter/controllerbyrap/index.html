@@ -14,9 +14,9 @@
                 const urlParams = new URLSearchParams(window.location.search);
                 console.log("urlParams: ", window.location.search)
                 console.log("urlParams.get('video'): ", urlParams.get('video'));
-                var desktopFallback = `https://twitter.com/controllerbyrap`,
-                mobileFallback = `https://twitter.com/controllerbyrap`,
-                app = `twitter://user?screen_name=controllerbyrap`;
+                var desktopFallback = `https://twitter.com/controllerbyrap?s=11`,
+                mobileFallback = `https://twitter.com/controllerbyrap?s=11`,
+                app = `twitter://user?screen_name=controllerbyrap?s=11`;
                 if( /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
                     window.location = app;
                     window.setTimeout(function() {
