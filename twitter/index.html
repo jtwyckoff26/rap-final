@@ -15,8 +15,8 @@
                 console.log("urlParams: ", window.location.search)
                 console.log("urlParams.get('video'): ", urlParams.get('video'));
                 var desktopFallback = `https://twitter.com/raptvcom`,
-                mobileFallback = `https://twitter.com/raptvcom`,
-                app = `twitter://user?screen_name=raptvcom`;
+                mobileFallback = `https://twitter.com/rap`,
+                app = `twitter://user?screen_name=rap`;
                 if( /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
                     window.location = app;
                     window.setTimeout(function() {
