@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            window.onload = function() {
+                let myParam;
+                let baseString;
+                let searchString;
+                searchString = window.location.search;
+                const urlParams = new URLSearchParams(window.location.search);
+                console.log("urlParams: ", window.location.search)
+                console.log("urlParams.get('playlist'): ", urlParams.get('video'));
+                if (searchString.includes('video')) {
+                    myParam = urlParams.get('video');
+                    baseString = "https://www.tiktok.com/@rap/video/";
+                    baseStringApp = "snssdk1233://vm.tiktok.com/video/"
+                }
+                else {
+                    myParam = "";
+                    baseString = "https://www.tiktok.com/@rap";
+                    baseStringApp = "snssdk1233://user/profile/6743547525321950213"
+                }
+                var desktopFallback = `${baseString}${myParam}`,
+                mobileFallback = `${baseString}${myParam}`,
+                app = `${baseStringApp}${myParam}`;
+                if( /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
+                    window.location = app;
+                    window.setTimeout(function() {
+                        window.location = mobileFallback;
+                    }, 25);
+                } else {
+                    window.location = desktopFallback;
+                }
+                function killPopup() {
+                    window.removeEventListener('pagehide', killPopup);
+                }
+                window.addEventListener('pagehide', killPopup);
+            };
+        </script>
+    </body>
+</html>
